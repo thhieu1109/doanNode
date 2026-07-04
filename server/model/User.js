@@ -1,3 +1,15 @@
+/*
+ * PrismaClient là class được Prisma tự động generate. vào thư mục 'generated' sẽ thấy file 'client.js' chứa class này. 
+ * Class này có tất cả các method để thao tác với database, được tạo dựa trên schema.prisma của bạn.
+ * Đây là destructuring assignment, bạn có thể import trực tiếp PrismaClient từ file client.js mà không cần phải import cả file.
+ * Cần tạo một object từ class này để có thể thao tác với database.
+ * Object 'prisma' sẽ được dùng để CRUD dữ liệu:
+ * - prisma.user.findMany()
+ * - prisma.user.create()
+ * - prisma.product.update()
+ * ... 
+ */
+
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -19,9 +31,30 @@ const registerNewUser = async (data) => {
     return await prisma.user.create({ data: { name: data.name, email: data.email, password: data.password } });
 }
 
+const getUserById = async (id) => {
+    // sử dụng phương thức findUnique của prisma để tìm kiếm người dùng theo id
+    return await prisma.user.findUnique({ where: { id: parseInt(id) } });
+}
 
 
+const updateUserById = async (id, data) => {
+    // sử dụng phương thức update của prisma để cập nhật thông tin người dùng theo id
+    return await prisma.user.update({ where: { id: parseInt(id) }, data: data });
+}
+const deleteUserById = async (id) => {
+    // sử dụng phương thức delete của prisma để xóa người dùng theo id
+    return await prisma.user.delete({ where: { id: parseInt(id) } });
+}
+
+
+const getUserByEmail = async (email) => {
+    return await prisma.user.findUnique({ where: { email } });
+}
 module.exports = {
     getAllUsers,
-    registerNewUser
+    registerNewUser,
+    getUserById,
+    updateUserById,
+    deleteUserById,
+    getUserByEmail
 }

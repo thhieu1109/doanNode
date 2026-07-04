@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/admin/user', require('./routes/userApi'));
+app.use('/api/admin/users', require('./routes/userApi'));
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
