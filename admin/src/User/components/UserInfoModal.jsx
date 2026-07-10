@@ -14,7 +14,7 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
 
 
     // bấm edit user khác thì truyền dữ liệu user đó vào userInfoAfterEdit bằng useEffect
-    
+
     useEffect(() => {
         setUserInfoBeforeEdit(selectedUser);
     }, [selectedUser]);
@@ -31,15 +31,24 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
 
     const handleEditUser = (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('name', userInfoBeforeEdit.name);
+        formData.append('email', userInfoBeforeEdit.email);
+        formData.append('password', userInfoBeforeEdit.password);
+        formData.append('phone', userInfoBeforeEdit.phone);
+        formData.append('address', userInfoBeforeEdit.address);
+        // formData.append('id_country', userInfoBeforeEdit.id_country);
+        formData.append('avatar', userAvatar);
+        formData.append('level', userInfoBeforeEdit.level);
         // gửi thông tin sau cập nhật lên back-end bằng axios
-        axios.put(`http://localhost:3000/api/admin/users/update/${selectedUser.id}`, userInfoBeforeEdit)
+        axios.put(`http://localhost:3000/api/admin/users/update/${selectedUser.id}`, formData)
             .then((res) => {
                 console.log(res);
                 alert("Update success");
                 getUserList()
             })
             .catch((err) => {
-                console.log(err);
+                console.log(err.response.data);
                 alert("Update fail")
             })
 
@@ -47,11 +56,18 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
 
     }
 
+    const handleUploadAvatar = (e) => {
+        const file = e.target.files[0];
+        console.log(file);
+        if (!file) return alert("Please select an image file.");
+        setUserAvatar(file);
+    }
+
     const renderUserInfoBeforeEdit = () => {
         // Kiểm tra an toàn nếu dữ liệu user chưa kịp tải xong
         if (!userInfoBeforeEdit) {
-          return <div>Đang tải dữ liệu người dùng...</div>;  
-        } 
+            return <div>Đang tải dữ liệu người dùng...</div>;
+        }
 
         return (
             <div>
@@ -61,16 +77,19 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
                         <div
                             className="avatar-preview"
                             style={{
-                                backgroundImage: userInfoBeforeEdit.avatar ? `url(${userInfoBeforeEdit.avatar})` : 'none',
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
+                                backgroundImage: userAvatar
+                                    ? `url(${URL.createObjectURL(userAvatar)})`
+                                    : `url(${userInfoBeforeEdit.avatar})`,
                             }}
                         ></div>
-                        <button className="avatar-edit-btn" type="button">
+                        <button className="avatar-edit-btn" type="button" >
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <path d="M4 20l4.2-.6L19.6 8.1a1.5 1.5 0 0 0 0-2.1l-1.6-1.6a1.5 1.5 0 0 0-2.1 0L4.6 15.8 4 20z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
                             </svg>
+
                         </button>
+                        <input type="file" className="avatar-input" onChange={handleUploadAvatar} />
+
                     </div>
                     <div>
                         <div className="avatar-meta-name">{userInfoBeforeEdit.name || 'Chưa cập nhật'}</div>
@@ -158,7 +177,7 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
                         </div>
                     </div>
 
-                
+
                     {/* <div className="form-row">
                         <div className="form-field">
                             <label className="form-label">Quốc gia</label>

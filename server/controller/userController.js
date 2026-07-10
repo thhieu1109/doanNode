@@ -99,6 +99,8 @@ const updateUserById = async (req, res) => {
     const { id } = req.params;
     // tạo biến data để lấy dữ liệu từ request body
     const data = req.body;
+    // front-end dùng form-data append, nên ghi gửi req sẽ là string nên cần parseInt để nó chuyển qua number                                                                                                                                                                                                                  
+    data.level = parseInt(data.level);
     // lấy đường dẫn tệp hình ảnh từ request file,
     //  nếu không có thì gán giá trị null
     const avatarName = req.file ? req.file.filename : null;

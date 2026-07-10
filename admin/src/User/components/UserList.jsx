@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import UserInfoModal from './UserInfoModal';
 
 
+
 function UserList({ toggleModal }) {
 
     const [users, setUsers] = useState([]);
@@ -21,10 +22,10 @@ function UserList({ toggleModal }) {
     }
     //dùng useEffect để get data 
     useEffect(() => {
-            getUserList();
-        }, []);
+        getUserList();
+    }, []);
 
-   
+
 
 
 
@@ -58,7 +59,12 @@ function UserList({ toggleModal }) {
                 </td>
                 <td>
                     <div className="user-cell">
-                        <div className="user-avatar">{user.name.charAt(0)}</div>
+                        <div className="user-avatar">
+                            <img
+                                src={`http://localhost:3000/uploads/users/${user.avatar}`}
+
+                            />
+                        </div>
                         <div>
                             <div className="user-info-name">{user.name}</div>
                             <div className="user-info-email">{user.email}</div>
@@ -138,7 +144,7 @@ function UserList({ toggleModal }) {
                     </tbody>
                 </table>
 
-                <UserInfoModal selectedUser={selectedUser} isOpen={openEditModal} onClose={toggleEditModal}  getUserList={getUserList}/>
+                <UserInfoModal selectedUser={selectedUser} isOpen={openEditModal} onClose={toggleEditModal} getUserList={getUserList} />
             </div>
         </div>
     );

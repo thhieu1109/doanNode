@@ -53,9 +53,7 @@ const validatePhoneNumberFormat = (phoneNumber) => {
     //tạo biến errors để lưu trữ các lỗi validate
     const errors = {}
 
-    if (phoneNumber && !/^\d+$/.test(phoneNumber)) {
-        errors.phone = "Phone must be a number";
-    } else if (phoneNumber && phoneNumber.length > 10) {
+    if (phoneNumber && phoneNumber.length > 10) {
         errors.phone = "Phone must not exceed 10 digits";
     }
 
@@ -68,13 +66,13 @@ const avatarFormat = (avatar) => {
     const errors = {}
 
     const allowedFormat = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
-    
-    if(avatar && !allowedFormat.includes(avatar.mimetype)) {
+
+    if (avatar && !allowedFormat.includes(avatar.mimetype)) {
         errors.avatar = 'Invalid avatar format. Only JPEG, PNG, GIF, and JPG are allowed.';
     }
 
-    const maxSize =  1024 * 1024; // 1MB
-    if(avatar && avatar.size > maxSize) {
+    const maxSize = 1024 * 1024; // 1MB
+    if (avatar && avatar.size > maxSize) {
         errors.avatar = 'Avatar file size exceeds the limit of 1MB.';
     }
 
