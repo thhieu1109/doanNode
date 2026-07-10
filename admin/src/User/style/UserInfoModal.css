@@ -1,0 +1,339 @@
+/* ===== Overlay ===== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 22, 31, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ===== Modal card ===== */
+.info-modal {
+    width: 460px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 28px 24px;
+    box-shadow: 0 20px 50px rgba(20, 22, 31, 0.18);
+}
+
+/* ===== Header ===== */
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.modal-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #14161f;
+    margin: 0;
+}
+
+.modal-subtitle {
+    font-size: 13px;
+    color: #9298a6;
+    margin: 0;
+}
+
+.modal-close-btn {
+    background: #f5f5f8;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.modal-close-btn:hover {
+    background: #ecebf3;
+    color: #14161f;
+}
+
+/* ===== Avatar block ===== */
+.avatar-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f1f5;
+}
+
+.avatar-preview-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+}
+
+.avatar-preview {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #efeafd;
+    color: #6c4bf4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.avatar-edit-btn {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #6c4bf4;
+    border: 2px solid #fff;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.avatar-edit-btn:hover {
+    background: #5c3ce0;
+}
+
+.avatar-meta-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #14161f;
+}
+
+.avatar-meta-file {
+    font-size: 12.5px;
+    color: #9298a6;
+    margin-top: 2px;
+    word-break: break-all;
+}
+
+/* ===== Form ===== */
+.info-form {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+
+.form-row .form-field {
+    flex: 1;
+    min-width: 0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3d4150;
+}
+
+.readonly-tag {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #a8adba;
+    background: #f1f2f6;
+    padding: 1px 7px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap .field-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a8adba;
+    display: inline-flex;
+    pointer-events: none;
+}
+
+.form-input {
+    width: 100%;
+    padding: 11px 14px 11px 38px;
+    border-radius: 10px;
+    border: 1px solid #e7e8ee;
+    background: #fafafc;
+    font-size: 14px;
+    color: #1f2430;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: #a8adba;
+}
+
+.form-input:focus {
+    border-color: #6c4bf4;
+    background: #fff;
+}
+
+/* Read-only variant */
+.form-input.readonly,
+.form-input:disabled {
+    background: #f5f5f7;
+    border-color: #edeef2;
+    color: #8a8f9c;
+    cursor: not-allowed;
+}
+
+.input-wrap .lock-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c3c6d1;
+    display: inline-flex;
+}
+
+/* Select */
+.select-wrap {
+    position: relative;
+}
+
+.form-select {
+    width: 100%;
+    appearance: none;
+    padding: 11px 36px 11px 38px;
+    border-radius: 10px;
+    border: 1px solid #e7e8ee;
+    background: #fafafc;
+    font-size: 14px;
+    color: #1f2430;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    border-color: #6c4bf4;
+    background: #fff;
+}
+
+.select-wrap .select-chevron {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a8adba;
+    pointer-events: none;
+}
+
+/* Password row (masked + change action) */
+.password-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.password-dots {
+    flex: 1;
+    padding: 11px 14px 11px 38px;
+    border-radius: 10px;
+    border: 1px solid #edeef2;
+    background: #f5f5f7;
+    color: #8a8f9c;
+    font-size: 18px;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.btn-change-password {
+    white-space: nowrap;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid #e7e8ee;
+    background: #ffffff;
+    color: #6c4bf4;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-change-password:hover {
+    background: #efeafd;
+}
+
+/* ===== Footer actions ===== */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-cancel {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #e7e8ee;
+    background: #ffffff;
+    color: #3d4150;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background: #fafafc;
+}
+
+.btn-submit {
+    flex: 1.4;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    background: #6c4bf4;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-submit:hover {
+    background: #5c3ce0;
+}
