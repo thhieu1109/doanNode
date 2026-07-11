@@ -9,8 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Expose thư mục public/uploads
-app.use('/uploads', express.static('public/uploads'));
+
 
 app.use('/api/admin/users', require('./routes/userApi'));
 

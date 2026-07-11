@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controller/UserController");
+const loginController = require("../controller/loginController");
 //gọi tới module uploadFile để xử lý tệp hình ảnh
 const uploadFile = require('../config/multer');
 
@@ -16,5 +17,9 @@ router.get("/show/:id", userController.getUserById);
 router.put("/update/:id", uploadFile, userController.updateUserById);
 // Định nghĩa route để xóa người dùng theo id
 router.delete("/delete/:id", userController.deleteUserById);
+
+
+// Định nghĩa route để đăng nhập cho admin
+router.post("/login", loginController.handleAdminLogin);
 
 module.exports = router;

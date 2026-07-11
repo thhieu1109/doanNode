@@ -20,7 +20,7 @@ function RegisterUserModal({ onClose }) {
         name: "",
         email: "",
         password: "",
-
+        
     });
 
     // thường thì mỗi ô input sẽ có một hàm onChange riêng của nó, nhưng như vậy gặp form lớn thì code dài lắm
