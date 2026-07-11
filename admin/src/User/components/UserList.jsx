@@ -118,6 +118,10 @@ function UserList({ toggleModal }) {
 
     const handleDeleteUserById = (id) => {
 
+        if (level === 0) {
+            alert("Can't delete admin");
+            return
+        }
         axios.delete(`http://localhost:3000/api/admin/users/delete/${id}`)
             .then(res => {
                 alert("Delete success");
