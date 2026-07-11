@@ -82,7 +82,7 @@ function UserList({ toggleModal }) {
                                 <path d="M4 20l4.2-.6L19.6 8.1a1.5 1.5 0 0 0 0-2.1l-1.6-1.6a1.5 1.5 0 0 0-2.1 0L4.6 15.8 4 20z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
                             </svg>
                         </button>
-                        <button className="action-icon-btn delete">
+                        <button className="action-icon-btn delete" onClick={() => handleDeleteUserById(user.id)}>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                                 <path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m2 0v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V7h10z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
@@ -114,6 +114,17 @@ function UserList({ toggleModal }) {
                 console.log(err);
             })
         return selectedUser
+    }
+
+    const handleDeleteUserById = (id) => {
+
+        axios.delete(`http://localhost:3000/api/admin/users/delete/${id}`)
+            .then(res => {
+                alert("Delete success");
+                getUserList();
+            }).catch(err => {
+                console.log(err);
+            })
     }
 
     return (

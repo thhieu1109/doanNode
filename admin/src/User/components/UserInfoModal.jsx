@@ -28,7 +28,7 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
             [fieldInput]: value
         })
     }
-
+    
     const handleEditUser = (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -57,9 +57,24 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
     }
 
     const handleUploadAvatar = (e) => {
+
+        // e.target là chọn vô thẻ input có type là file
+        // cái input ni có cái thuộc tính files nó là một mảng, nên nếu muốn lấy 1 ảnh thì sử dụng e.target.files[0]
         const file = e.target.files[0];
         console.log(file);
-        if (!file) return alert("Please select an image file.");
+        if (!file) {
+            return alert("Please select an image file.");
+        }
+        // đưa dữ liệu file vừa chọn vô state
+        // nó là dạng object như sau
+        //         File {
+        //     name: "avatar.png",
+        //     size: 104321,
+        //     type: "image/png",
+        //     lastModified: ...
+        // }
+
+        // sau đó dữ liệu file sẽ do formData và multer bên back-end xử lí
         setUserAvatar(file);
     }
 
