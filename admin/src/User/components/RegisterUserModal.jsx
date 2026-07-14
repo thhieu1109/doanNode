@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "../style/RegisterUserModal.css"
 import axios from 'axios';
-function RegisterUserModal({ onClose }) {
+function RegisterUserModal({ onClose, getUserList }) {
 
     const [errors, setErrors] = useState({});
 
@@ -20,7 +20,7 @@ function RegisterUserModal({ onClose }) {
         name: "",
         email: "",
         password: "",
-        
+
     });
 
     // thường thì mỗi ô input sẽ có một hàm onChange riêng của nó, nhưng như vậy gặp form lớn thì code dài lắm
@@ -54,7 +54,7 @@ function RegisterUserModal({ onClose }) {
             console.log(formData);
         }
         onClose()
-
+        window.location.reload();
     }
 
     // muốn viết validate, trước hết nên có state quản lí lỗi đã, nên khai báo state lỗi ở trên

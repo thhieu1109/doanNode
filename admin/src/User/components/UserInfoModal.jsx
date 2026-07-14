@@ -28,7 +28,7 @@ function UserInfoModal({ selectedUser, isOpen, onClose, getUserList }) {
             [fieldInput]: value
         })
     }
-    
+
     const handleEditUser = (e) => {
         e.preventDefault();
         const formData = new FormData();

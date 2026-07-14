@@ -52,8 +52,8 @@ const getUserByEmail = async (email) => {
 }
 // findUnique() của Prisma chỉ dùng để tìm theo các trường có ràng buộc @id hoặc @unique.
 // nên muốn tìm theo level thì phải sử dụng findFirst()
-const getAdmin = async (level) => {
-    return await prisma.user.findFirst({ where: { level: 0 } });
+const getAdmin = async (email) => {
+    return await prisma.user.findFirst({ where: { email: email, level: 0 } });
 }
 
 module.exports = {

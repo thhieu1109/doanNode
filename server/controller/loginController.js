@@ -8,8 +8,8 @@ const handleAdminLogin = async (req, res) => {
         return res.status(400).json({ message: "Please enter email and password" });
     }
 
-    // hàm tìm kiếm user bằng level bên ORM
-    const user = await userModel.getAdmin(level);
+    // hàm tìm kiếm user bằng level và email bên ORM
+    const user = await userModel.getAdmin(email);
 
     if (!user) {
         return res.status(400).json({ message: "Admin not found" });

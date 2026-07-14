@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/UsersPage.css';
 import Sidebar from '../components/Sidebar';
 import RegisterUserModal from '../components/RegisterUserModal';
 import UserList from '../components/UserList';
+import axios from 'axios';
 
 function UsersPage(props) {
 
     // dùng useState để quản lý trạng thái hiển thị của modal đăng ký người dùng
     const [registerModalOpen, setRegisterModalOpen] = useState(false);
+
+    const [users, setUsers] = useState([]);
 
     // hàm toggleModal để thay đổi trạng thái hiển thị của modal
     const toggleModal = () => {
@@ -18,7 +21,7 @@ function UsersPage(props) {
     //hàm hiển thị modal đăng ký người dùng nếu registerModalOpen là true
     const renderRegisterUserModal = () => {
         if (registerModalOpen) {
-            return <RegisterUserModal isOpen={registerModalOpen} onClose={toggleModal} />;
+            return <RegisterUserModal isOpen={registerModalOpen} onClose={toggleModal}  />;
         }
         return null;
     };
