@@ -6,7 +6,7 @@ function AddCountryModal({ onClose }) {
 
 
     const [errors, setErrors] = useState({});
-    const [formData, setFormData] = useState({
+    const [countryName, setCountryName] = useState({
         name: "",
     });
 
@@ -19,8 +19,8 @@ function AddCountryModal({ onClose }) {
     const handleInputChange = (e) => {
         const fieldInput = e.target.name;
         const value = e.target.value;
-        setFormData({
-            ...formData,
+        setCountryName({
+            ...countryName,
             [fieldInput]: value
         })
     }
@@ -29,7 +29,7 @@ function AddCountryModal({ onClose }) {
         const errorsInForm = {};
         let valid = true;
 
-        if (!formData.name) {
+        if (!countryName.name) {
             errorsInForm.name = 'Name is required';
             valid = false;
         }
@@ -41,7 +41,7 @@ function AddCountryModal({ onClose }) {
         e.preventDefault();
 
         if (validateRegisterForm()) {
-            axios.post(`http://localhost:3000/api/admin/countries/register`, formData)
+            axios.post(`http://localhost:3000/api/admin/country/add`, countryName)
                 .then((res) => {
                     console.log(res);
                     alert("Register success")

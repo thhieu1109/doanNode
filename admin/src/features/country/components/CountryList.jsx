@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import "../styles/CountryList.css"
 
 function CountryList({ toggleModal }) {
+
     const [countries, setCountries] = useState([]);
     const [openEditModal, setOpenEditModal] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState({});
@@ -91,7 +92,7 @@ function CountryList({ toggleModal }) {
                     </tbody>
                 </table>
 
-                <CountryInfoModal selectedCountry={selectedCountry} isOpen={openEditModal} onClose={toggleEditModal} />
+                <CountryInfoModal selectedCountry={selectedCountry} isOpen={openEditModal} onClose={toggleEditModal} getCountryList={getCountryList} />
             </div>
         </div>
     );

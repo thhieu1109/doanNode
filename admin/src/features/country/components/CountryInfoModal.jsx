@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import "../styles/AddCountryModal.css"
 
-function CountryInfoModal({ selectedCountry, isOpen, onClose }) {
+function CountryInfoModal({ selectedCountry, isOpen, onClose, getCountryList }) {
+
 
 
     const [countryInfoBeforeEdit, setCountryInfoBeforeEdit] = useState({});
@@ -28,9 +29,7 @@ function CountryInfoModal({ selectedCountry, isOpen, onClose }) {
     const handleEditCountry = (e) => {
         e.preventDefault();
         // Country không có upload file nên gửi JSON thẳng, không cần FormData
-        axios.put(`http://localhost:3000/api/admin/countries/update/${selectedCountry.id}`, {
-            name: countryInfoBeforeEdit.name
-        })
+        axios.put(`http://localhost:3000/api/admin/country/edit/${selectedCountry.id}`, { name: countryInfoBeforeEdit.name })
             .then((res) => {
                 console.log(res);
                 alert("Update success");
@@ -38,7 +37,7 @@ function CountryInfoModal({ selectedCountry, isOpen, onClose }) {
                 onClose();
             })
             .catch((err) => {
-                console.log(err.response?.data);
+                console.log(err);
                 alert("Update fail")
             })
     }

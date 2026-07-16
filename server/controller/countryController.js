@@ -8,8 +8,8 @@ const getAllCountry = async (req, res) => {
 }
 
 const getCountryById = async (req, res) => {
-    const data = req.body;
-    const country = await countryModel.getCountryById(data);
+    const id = req.params.id;
+    const country = await countryModel.getCountryById(id);
     res.status(200).json(country);
 }
 
