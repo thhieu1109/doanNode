@@ -1,5 +1,6 @@
 import React from 'react';
-import "../style/UsersPage.css"
+import "./styles/Sidebar.css"
+import { Link } from 'react-router-dom';
 function Sidebar(props) {
     return (
         <div>
@@ -13,7 +14,7 @@ function Sidebar(props) {
                 <div className="sidebar-section-label">Menu</div>
                 <ul className="sidebar-nav">
                     <li>
-                        <a className="sidebar-link active">
+                        <Link className="sidebar-link active" to="/admin/users-management">
                             <span className="icon">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="8" r="3.2" stroke="currentColor" strokeWidth="1.8" />
@@ -21,18 +22,18 @@ function Sidebar(props) {
                                 </svg>
                             </span>
                             Users
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a className="sidebar-link">
+                        <Link className="sidebar-link" to="/admin/country-management">
                             <span className="icon">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
                                     <path d="M12 16v.01M12 8a2.2 2.2 0 0 1 2.2 2.2c0 1.6-2.2 1.6-2.2 3.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                                 </svg>
                             </span>
-                            Support
-                        </a>
+                            Country
+                        </Link>
                     </li>
                 </ul>
             </aside>

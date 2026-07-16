@@ -1,0 +1,153 @@
+.content-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 28px 12px;
+    min-height: calc(100vh - 48px);
+}
+
+/* ===== Header ===== */
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    color: #14161f;
+}
+
+.page-count-badge {
+    background: #f1f2f6;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* ===== Toolbar ===== */
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.search-input-wrap {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+}
+
+.search-input-wrap .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a8adba;
+    display: inline-flex;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border-radius: 10px;
+    border: 1px solid #e7e8ee;
+    background: #fafafc;
+    font-size: 14px;
+    color: #1f2430;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #a8adba;
+}
+
+.search-input:focus {
+    border-color: #6c4bf4;
+    background: #fff;
+}
+
+.btn-add-user {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #6c4bf4;
+    color: #fff;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-add-user:hover {
+    background: #5c3ce0;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 4px 20px;
+}
+
+.pagination-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination-link:hover {
+    color: #14161f;
+}
+
+.pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.page-btn {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 6px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.page-btn:hover {
+    background: #f1f2f6;
+}
+
+.page-btn.active {
+    background: #6c4bf4;
+    color: #fff;
+}
+
+.page-btn.dots {
+    cursor: default;
+}
+
+.page-btn.dots:hover {
+    background: transparent;
+}

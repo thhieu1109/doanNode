@@ -1,17 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import UsersPage from './User/pages/UsersPage'
+import AdminPanelLayout from './layouts/AdminPanelLayout'
+import UsersPage from './features/user/pages/UsersPage'
+import CountryPage from './features/country/pages/CountryPage'
+import { Children } from 'react'
 
-
-function App() {
-  
-
+function App({children}) {
   return (
-    <>
-     <UsersPage />
-    </>
+    <AdminPanelLayout>
+      {children}
+
+    </AdminPanelLayout>
   )
 }
 

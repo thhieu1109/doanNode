@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/api/admin/users', require('./routes/userApi'));
+app.use('/api/admin/country', require('./routes/countryApi'));
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');

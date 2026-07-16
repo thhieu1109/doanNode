@@ -1,0 +1,81 @@
+.users-table-wrap {
+    border: 1px solid #eef0f4;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table thead th {
+    background: #fafafc;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: #9298a6;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eef0f4;
+}
+
+.th-checkbox {
+    width: 44px;
+}
+
+.users-table tbody tr {
+    border-bottom: 1px solid #f2f3f7;
+}
+
+.users-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.users-table tbody tr:nth-child(even) {
+    background: #fafafc;
+}
+
+.users-table tbody td {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #1f2430;
+    vertical-align: middle;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1.5px solid #d5d7e0;
+    accent-color: #6c4bf4;
+    cursor: pointer;
+}
+
+.action-cell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.action-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    color: #9298a6;
+}
+
+.action-icon-btn.edit:hover {
+    color: #6c4bf4;
+}
+
+.action-icon-btn.delete {
+    color: #f14848;
+}
+
+.action-icon-btn.delete:hover {
+    color: #d92d2d;
+}
