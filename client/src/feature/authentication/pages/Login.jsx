@@ -24,11 +24,21 @@ function Login(props) {
     const handleSubmitLogin = (e) => {
         e.preventDefault();
 
-        axios.post(`http://localhost:3000/api/admin/users/login`, loginData)
+        axios.post(`http://localhost:3000/api/login`, loginData)
             .then((res) => {
                 console.log(res);
-                alert("Admin login success");
-                navigate('/admin/users-management');
+                alert("Login success");
+                // xem log res thì server trả dữ liệu của user ở data.data
+
+                const userLoginNow = res.data.data;
+                if (userLoginNow.level === 0) {
+                    // do không dùng navigate dc do chạy ở 2 link khác nhau nên phải dùng window.location.href
+                    // chạy local host như này thì bắt buộc chạy admin trước để lấy port 5173, client chạy sau để lấy cổng 5174
+                    window.location.href = "http://localhost:5173/admin/users-management";
+                } else {
+                    navigate("/");
+                    localStorage.setItem("User", userLoginNow.email);
+                }
             })
             .catch((err) => {
                 console.log(err.response.data);

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const countryController = require("../controller/countryController");
+const countryController = require("../../controller/countryController");
 
 router.get("/list", countryController.getAllCountry);
 

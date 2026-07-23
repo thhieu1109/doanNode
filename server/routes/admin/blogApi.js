@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const blogController = require("../controller/blogController");
+const blogController = require("../../controller/blogController");
 
 // dùng riêng upload cho Blog, field 'image', khác hẳn upload của User
-const { uploadBlogImage } = require('../config/multer');
+const { uploadBlogImage } = require('../../config/multer');
 
 router.get("/list", blogController.getAllBlogs);
 

@@ -1,0 +1,560 @@
+* {
+  box-sizing: border-box;
+}
+
+.home {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  width: 100%;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 40px;
+  border-bottom: 1px solid #e6e6e6;
+  position: relative;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-right: 36px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #000;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cfcfcf;
+  height: 34px;
+  width: 200px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 13px;
+  height: 100%;
+}
+
+.search-btn {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: #000;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ---------- Buttons (shared) ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 13px 20px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn.small {
+  padding: 10px 16px;
+  font-size: 11px;
+}
+
+.btn-white {
+  background: #fff;
+  color: #000;
+}
+
+.btn-black {
+  background: #000;
+  color: #fff;
+}
+
+.chevron {
+  font-weight: 400;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: flex;
+  min-height: 440px;
+}
+
+.hero-content {
+  flex: 1;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.hero-content h1 {
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.hero-content p {
+  font-size: 14px;
+  color: #d6d6d6;
+  max-width: 360px;
+  line-height: 1.5;
+  margin: 0 0 28px 0;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+}
+
+.hero-buttons .btn {
+  min-width: 230px;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Fall Sale ---------- */
+
+.fall-sale {
+  padding: 48px 40px;
+}
+
+.fall-sale h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.5px;
+}
+
+.fall-sale p {
+  font-size: 14px;
+  color: #333;
+  max-width: 600px;
+  margin: 0 0 22px 0;
+  line-height: 1.5;
+}
+
+.fall-sale-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* ---------- Feature Grid ---------- */
+
+.feature-grid {
+  display: flex;
+  gap: 4px;
+  padding: 0 4px;
+}
+
+.feature-block {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-block.classics {
+  flex: 0.44;
+}
+
+.feature-block.harden {
+  flex: 0.56;
+}
+
+.feature-block img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.feature-overlay {
+  position: absolute;
+  padding: 32px;
+}
+
+.feature-overlay.top-left {
+  top: 0;
+  left: 0;
+  color: #2b2b2b;
+}
+
+.feature-overlay.bottom-left {
+  bottom: 0;
+  left: 0;
+  color: #fff;
+}
+
+.feature-overlay h3 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.15;
+  margin: 0 0 18px 0;
+  text-transform: uppercase;
+}
+
+.feature-overlay p {
+  font-size: 13px;
+  margin: -8px 0 16px 0;
+}
+
+/* ---------- All Products ---------- */
+
+.all-products {
+  padding: 50px 40px 60px 40px;
+}
+
+.all-products > h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 30px 0;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 14px 0;
+  margin-bottom: 34px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  position: relative;
+}
+
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #000;
+}
+
+.filter-toggle.more {
+  text-decoration: underline;
+}
+
+.caret {
+  font-size: 11px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+  z-index: 10;
+  text-align: left;
+}
+
+.dropdown label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 20px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.product-image {
+  background: #f2f2f2;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-name-price {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.product-meta {
+  font-size: 12px;
+  color: #767676;
+}
+
+.dot {
+  margin: 0 2px;
+}
+
+.more-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.more-btn {
+  background: none;
+  border: none;
+  color: #8c8c8c;
+  font-size: 14px;
+  padding: 14px 40px;
+  cursor: pointer;
+}
+
+.more-btn:hover {
+  color: #000;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 24px;
+  }
+
+  .hero-content {
+    padding: 40px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e6e6e6;
+    z-index: 30;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .icon-link span {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-image img {
+    height: 260px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .fall-sale {
+    padding: 36px 24px;
+  }
+
+  .feature-grid {
+    flex-direction: column;
+  }
+
+  .feature-block img {
+    height: 320px;
+  }
+
+  .all-products {
+    padding: 40px 24px;
+  }
+
+  .filter-bar {
+    gap: 18px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .navbar-right {
+    gap: 14px;
+  }
+
+  .hero-content {
+    padding: 28px 20px;
+  }
+
+  .hero-buttons .btn {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .fall-sale-buttons {
+    flex-direction: column;
+  }
+
+  .fall-sale-buttons .btn {
+    justify-content: center;
+  }
+
+  .product-name-price {
+    flex-direction: column;
+    gap: 2px;
+  }
+}

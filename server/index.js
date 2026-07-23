@@ -11,9 +11,15 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.use('/api/admin/users', require('./routes/userApi'));
-app.use('/api/admin/country', require('./routes/countryApi'));
-app.use('/api/admin/blog', require('./routes/blogApi'));
+app.use('/api/admin/users', require('./routes/admin/userApi'));
+app.use('/api/admin/country', require('./routes/admin/countryApi'));
+app.use('/api/admin/blog', require('./routes/admin/blogApi'));
+
+
+app.use('/api/member/', require('./routes/client/clientUserApi'));
+
+app.use('/api/', require('./routes/authApi'));
+
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
