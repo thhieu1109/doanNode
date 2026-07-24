@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../components/styles/HomePageStyle.css"
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/layouts/Header';
 
 
 const products = [
@@ -71,90 +72,11 @@ const products = [
 ];
 
 function HomePage(props) {
-    const [mobileNavOpen, setMobileNavOpen] = useState(false);
-    const [genderOpen, setGenderOpen] = useState(true);
-    const [openFilter, setOpenFilter] = useState("gender");
-    const [genderChecks, setGenderChecks] = useState({
-        men: false,
-        women: true,
-        kids: false,
-    });
 
-    const toggleGender = (key) => {
-        setGenderChecks((prev) => ({ ...prev, [key]: !prev[key] }));
-    };
-
-    const handleFilterClick = (name) => {
-        if (openFilter === name) {
-            setOpenFilter(null);
-        } else {
-            setOpenFilter(name);
-        }
-    };
-
-    const loginNavigate = useNavigate();
-    const handleLoginClick = () => {
-        loginNavigate("/login");
-    }
 
     return (
         <div className="home">
-            <header className="navbar">
-                <div className="navbar-left">
-                    <button
-                        className={`hamburger ${mobileNavOpen ? "active" : ""}`}
-                        onClick={() => setMobileNavOpen(!mobileNavOpen)}
-                        aria-label="Toggle navigation"
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div className="logo">
-                        <svg width="28" height="28" viewBox="0 0 34 34" fill="none">
-                            <path d="M2 25L9 9L12 17L6 25H2Z" fill="#000" />
-                            <path d="M12.5 25L20 6L23 14L16.5 25H12.5Z" fill="#000" />
-                            <path d="M23 25L31 4L34 11L27 25H23Z" fill="#000" />
-                        </svg>
-                        <span>adidas</span>
-                    </div>
-                    <nav className={`nav-links ${mobileNavOpen ? "open" : ""}`}>
-                        <a href="#men">Men</a>
-                        <a href="#women">Women</a>
-                        <a href="#kids">Kids</a>
-                        <a href="#sports">Sports</a>
-                        <a href="#brands">Brands</a>
-                        <a href="#release-dates">Release Dates</a>
-                    </nav>
-                </div>
-                <div className="navbar-right">
-                    <div className="search-box">
-                        <input type="text" placeholder="Search" />
-                        <button className="search-btn" aria-label="Search">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <circle cx="11" cy="11" r="7" />
-                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                            </svg>
-                        </button>
-                    </div>
-                    <button className="icon-link">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="9" cy="21" r="1" />
-                            <circle cx="20" cy="21" r="1" />
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                        </svg>
-                        <span>Cart</span>
-                    </button>
-                    <button className="icon-link" onClick={handleLoginClick}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                            <circle cx="12" cy="7" r="4" />
-                        </svg>
-                        <span>Log in</span>
-                    </button>
-                   
-                </div>
-            </header>
+           
 
             <section className="hero">
                 <div className="hero-content">
@@ -229,96 +151,35 @@ function HomePage(props) {
                 <h2>ALL PRODUCTS</h2>
                 <div className="filter-bar">
                     <div className="filter-item">
-                        <button className="filter-toggle" onClick={() => handleFilterClick("gender")}>
+                        <button className="filter-toggle">
                             GENDER <span className="caret">⌄</span>
                         </button>
-                        {openFilter === "gender" && (
-                            <div className="dropdown">
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        checked={genderChecks.men}
-                                        onChange={() => toggleGender("men")}
-                                    />
-                                    Men
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        checked={genderChecks.women}
-                                        onChange={() => toggleGender("women")}
-                                    />
-                                    Women
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        checked={genderChecks.kids}
-                                        onChange={() => toggleGender("kids")}
-                                    />
-                                    Kids
-                                </label>
-                            </div>
-                        )}
+
+
+
                     </div>
                     <div className="filter-item">
-                        <button className="filter-toggle" onClick={() => handleFilterClick("price")}>
+                        <button className="filter-toggle" >
                             PRICE <span className="caret">⌄</span>
                         </button>
-                        {openFilter === "price" && (
-                            <div className="dropdown">
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    Under $50
-                                </label>
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    $50 - $100
-                                </label>
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    $100+
-                                </label>
-                            </div>
-                        )}
+
+
+
                     </div>
                     <div className="filter-item">
-                        <button className="filter-toggle" onClick={() => handleFilterClick("category")}>
+                        <button className="filter-toggle">
                             CATEGORY <span className="caret">⌄</span>
                         </button>
-                        {openFilter === "category" && (
-                            <div className="dropdown">
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    Shoes
-                                </label>
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    Clothing
-                                </label>
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    Accessories
-                                </label>
-                            </div>
-                        )}
+
+
+
                     </div>
                     <div className="filter-item">
-                        <button className="filter-toggle" onClick={() => handleFilterClick("collection")}>
+                        <button className="filter-toggle">
                             COLLECTION <span className="caret">⌄</span>
                         </button>
-                        {openFilter === "collection" && (
-                            <div className="dropdown">
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    Originals
-                                </label>
-                                <label>
-                                    <input type="checkbox" readOnly />
-                                    Running
-                                </label>
-                            </div>
-                        )}
+
+
                     </div>
                     <div className="filter-item">
                         <button className="filter-toggle more">

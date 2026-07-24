@@ -47,6 +47,10 @@ function Login(props) {
 
     }
 
+    const handleRegisterClick = () => {
+        navigate("/register");
+    }
+
     return (
 
         <div>
@@ -194,7 +198,7 @@ function Login(props) {
                         {/* Login button */}
                         <button className="btn-login" onClick={handleSubmitLogin}>Login</button>
 
-                        <p className="signup-hint">
+                        <p className="signup-hint" onClick={handleRegisterClick}>
                             Don't have an account? <a>Sign up</a>
                         </p>
 
